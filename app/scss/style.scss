@@ -1,0 +1,238 @@
+@import "../../node_modules/normalize.css/normalize";
+// @import "../../node_modules/slick-carousel/slick/slick";
+// @import "../../node_modules/magnific-popup/dist/magnific-popup";
+
+@font-face {
+	font-family: 'SF Compact Display Regular';
+	src: url('../fonts/sf-compact-display-thin-58646eb43a785.woff') format('woff');
+	font-style: normal;
+	font-weight: normal;
+}
+	
+@font-face {
+	font-family: 'SF Compact Display Semibold';
+	src: url('../fonts/sf-compact-display-medium-5864711817c30.woff') format('woff');
+	font-style: normal;
+	font-weight: 500;
+}
+
+a {
+	text-decoration: none;
+}
+
+$main: #ce032f;
+$sub-main: #cc002cb9;
+$text: rgb(63, 62, 62);
+
+@mixin flexible($content) {
+	display: flex;
+	justify-content: $content;
+}
+
+.banner {
+	margin: 0;
+	position: relative;
+	height: 100vh;
+	padding: 20px;
+	box-sizing: border-box;
+	font-family: 'SF Compact Display Regular', sans-serif;
+	background: linear-gradient(white, transparent);
+
+	&__close-button {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 20px;
+		height: 20px;
+
+		&:before,
+		&:after {
+			content:'';
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			border-radius: 1px;
+			background: lighten($text, 25%);
+			transform: translateX(-50%) translateY(-50%);
+			transform-origin: center center;
+		}
+
+		&:before {
+			transform: rotate(45deg);
+		}
+
+		&:after {
+			transform: rotate(-45deg);
+		}
+	}
+}
+
+.content {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+
+	&__title {
+		font-family: 'SF Compact Display Semibold';
+		font-size: 36px;
+		font-weight: 700;
+		color: $text;
+		margin: 0;
+		margin-bottom: 30px;
+	}
+
+	&__proposal {
+		width: 100%;
+		height: 75px;
+		padding: 15px;
+		padding-left: 35px;
+		box-sizing: border-box;
+		border-radius: 50px;
+		border: 1px solid $main;
+		margin-bottom: 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		&_text {
+			display: flex;
+			flex-flow: column;
+		}
+
+		&_title {
+			text-transform: uppercase;
+			font-family: 'SF Compact Display Semibold';
+			font-weight: 700;
+			font-size: 22px;
+			color: $main;
+			letter-spacing: 1px;
+			margin: 0;
+		}
+
+		&_subtitle {
+			font-size: 14px;
+			color: $main;
+		}
+
+		&_button {
+			width: 160px;
+			height: 45px;
+			border-radius: 30px;
+			background: linear-gradient(to right, $main, $sub-main);
+			outline: none;
+			border: none;
+			font-family: 'SF Compact Display Semibold';
+			font-size: 14px;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			color: white;
+		}
+	}
+
+	&__features {
+		list-style: none;
+		margin: 0;
+		margin-top: 15px;
+		padding: 0;
+	}
+
+	&__feature {
+		padding-left: 40px;
+		margin: 0 0 10px 0;
+		position: relative;
+		font-size: 16px;
+		line-height: 24px;
+		color: $text;
+
+		&:before,
+		&:after {
+			content:'';
+			position: absolute;
+			display: block;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		&:before {
+			width: 14px;
+			height: 14px;
+			border-radius: 50%;
+			background: $main;
+		}
+
+		&:after {
+			left: 3px;
+			width: 6px;
+			height: 3px;
+			border: 1px solid white;
+			border-right-color: transparent;
+			border-top-color: transparent;
+			transform: translateY(-65%) rotate(-55deg);
+		}
+	}
+}
+
+.shaddow {
+	width: 100%;
+	height: 22px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 10;
+	background: linear-gradient(to top, white, transparent);
+}
+
+.info-block {
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+	color: $text;
+	font-size: 14px;
+	line-height: 16px;
+	align-items: center;
+	position: absolute;
+	top: 100vh;
+	left: 0;
+	transform: translateY(-52px);
+	padding: 20px;
+	box-sizing: border-box;
+
+	&__text {
+		text-align: center;
+		line-height: 15px;
+		margin: 0;
+	}
+
+	&__link {
+		margin: 0 5px;
+		color: $text;
+		text-decoration: underline;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.content__title {
+		font-size: 34px;
+	}
+
+	.content__proposal_title {
+		font-size: 16px;
+	}
+
+	.content__proposal_subtitle {
+		font-size: 13px;
+	}
+
+	.content__proposal_button {
+		font-size: 12px;
+		width: 140px;
+	}
+}
